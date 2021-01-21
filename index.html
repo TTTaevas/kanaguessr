@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>KanaLearning</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./index.css">
+		<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="./index.js"></script>
+	</head>
+	<body onload="changeQuestion()">
+		<div id="question">
+			<p>If you see this, please enable Javascript in order for the website to work properly!</p>
+			<input type="text" id="answer_field" autofocus="autofocus" onfocus="this.select()">
+			<button onclick="checkAnswer()" id="answer_btn">Answer</button>
+			<button onclick="changeQuestion()" id="next_btn">Next</button>
+		</div>
+		<div id="correct_answer" style="visibility: hidden;">
+			<p>Answer was</p>
+		</div>
+		<div id="score">
+			<p style="color: red">0</p>
+			<p style="color: green">0</p>
+		</div>
+		<form id="allowed">
+			<input type="checkbox" id="h" checked="true"> <label for="h">Allow questions involving hiraganas?</label>
+			<input type="checkbox" id="k" checked="true"> <label for="k">Allow questions involving katakanas?</label>
+			<input type="checkbox" id="r" checked="true"> <label for="r">Allow questions involving romaji?</label>
+		</form>
+	</body>
+</html>
