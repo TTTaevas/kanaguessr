@@ -9,7 +9,10 @@
 	</head>
 	<body onload="changeQuestion()">
 		<div id="question">
-			<p>If you see this, please enable Javascript in order for the website to work properly!</p>
+			<p id="character">If you see this, please enable Javascript in order for the website to work properly!</p>
+			<p id="equivalent">If you see this, please enable Javascript in order for the website to work properly!</p>
+		</div>
+		<div id="user_answer">
 			<input type="text" id="answer_field" autofocus="autofocus" onfocus="this.select()">
 			<button onclick="checkAnswer()" id="answer_btn">Answer</button>
 			<button onclick="changeQuestion()" id="next_btn">Next</button>

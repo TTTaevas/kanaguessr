@@ -1,3 +1,31 @@
 body {
+	display: inline;
+	background-color: #1c1f22;
+	color: white;
+	font-family: "Helvetica";
+}
+
+#question {
+	width: 100%;
+}
+
+#character {
+	font-size: 100px;
+	background-color: black;
 	text-align: center;
+	line-height: 200px;
+	width: 200px;
+	height: 200px;
+	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#correct_answer {
+}
+
+#score {
+}
+
+#allowed {
 }

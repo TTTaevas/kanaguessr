@@ -10,10 +10,12 @@ function changeQuestion() {
 	document.getElementById("answer_field").value = ""
 	document.getElementById("answer_field").focus()
 
-	let p = document.getElementById("question").getElementsByTagName('p')[0]
+	let p_one = document.getElementById("character")
+	let p_two = document.getElementById("equivalent")
 	let a = document.getElementById("correct_answer")
 
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
+	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
 
 	a.style.visibility = "hidden"
 
@@ -23,44 +25,47 @@ function changeQuestion() {
 		var part_two
 		var answer
 
-		switch (questionShape[0]) {
+		switch (questionShape[1]) {
 			case "h":
-				part_one = "hiragana"
-				answer = characters.h
+				part_one = characters.h
 				break
 			case "k":
-				part_one = "katakana"
-				answer = characters.k
+				part_one = characters.k
 				break
 			case "r":
-				part_one = "romaji"
-				answer = characters.r
+				part_one = characters.r
 				break
 			default:
 				part_one = "???"
 		}
 
-		switch (questionShape[1]) {
+		switch (questionShape[0]) {
 			case "h":
-				part_two = characters.h
+				part_two = "hiragana"
+				answer = characters.h
 				break
 			case "k":
-				part_two = characters.k
+				part_two = "katakana"
+				answer = characters.k
 				break
 			case "r":
-				part_two = characters.r
+				part_two = "romaji"
+				answer = characters.r
 				break
 			default:
 				part_two = "???"
 		}
 
-		p.innerHTML = `What is the ${part_one} equivalent of ${part_two}?`
+		p_one.innerHTML = part_one
+		p_two.innerHTML = part_two
 		a.getElementsByTagName('p')[0].innerHTML = `The answer was ${answer}`
 
 	})
 }
 
 function shapeQuestion(allow) {
+	if (allow.filter(Boolean).length < 2) {return false} // No question can be found if two boxes are left unchecked
+
 	let possibilities = ['h', 'k', 'r']
 	var element_one
 	var element_two
