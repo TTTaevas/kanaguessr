@@ -5,6 +5,15 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+button {
+  background-color: green;
+  border: 1px solid grey;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 #question {
 	width: 100%;
 }
@@ -61,4 +70,58 @@ body {
 	margin-top: 2em;
 	margin-right: auto;
 	margin-bottom: 0px;
+}
+
+#score {
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+#score p {
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 2em;
+	width: 15em;
+	height: 2em;
+	border: 1px solid;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#positive {
+	margin-left: auto;
+	margin-right: 10px;
+}
+
+#negative {
+	margin-right: auto;
+	margin-left: 10px;
+}
+
+#allowed {
+	position: absolute;
+	bottom: 50%;
+	font-size: 20px;
+	background-color: white;
+	text-align: center;
+	line-height: 1.5em;
+	border: 1px solid black;
+	overflow: initial;
+}
+
+#misc {
+	position: absolute;
+	bottom: 0%;
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 1.5em;
+	border: 1px solid white;
+	overflow: initial;
+}
+
+form * {
+	margin: 3px;
 }

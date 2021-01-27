@@ -9,8 +9,8 @@
 	</head>
 	<body onload="changeQuestion()">
 		<div id="question">
-			<p id="character">if you see this, please enable Javascript in order for the website to work properly!</p>
-			<p id="equivalent">if you see this, please enable Javascript in order for the website to work properly!</p>
+			<p id="character"></p>
+			<p id="equivalent"></p>
 		</div>
 		<div id="user_answer">
 			<input type="text" id="answer_field" autofocus="autofocus" onfocus="this.select()">
@@ -21,13 +21,16 @@
 			<p>Answer was</p>
 		</div>
 		<div id="score">
-			<p style="color: red">0</p>
-			<p style="color: green">0</p>
+			<p style="color: green" id="positive">0</p>
+			<p style="color: red" id="negative">0</p>
 		</div>
 		<form id="allowed">
-			<input type="checkbox" id="h" checked="true"> <label for="h">allow questions involving hiraganas?</label>
-			<input type="checkbox" id="k" checked="true"> <label for="k">allow questions involving katakanas?</label>
-			<input type="checkbox" id="r" checked="true"> <label for="r">allow questions involving romaji?</label>
+			<section><input type="checkbox" id="h" checked="true"> <label for="h" style="color: red">hiragana</label></section>
+			<section><input type="checkbox" id="k" checked="true"> <label for="k" style="color: green">katakana</label></section>
+			<section><input type="checkbox" id="r" checked="true"> <label for="r" style="color: blue">romaji</label></section>
+		</form>
+		<form id="misc">
+			<input type="checkbox" id="auto"> <label for="auto" style="color: white">automatically go to next after answer</label>
 		</form>
 	</body>
 </html>

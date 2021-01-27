@@ -113,14 +113,20 @@ function shapeQuestion(allow) {
 function checkAnswer() {
 	let answer_field = document.getElementById("answer_field")
 	let correct_answer_p = document.getElementById("correct_answer").getElementsByTagName('p')[0]
-	let positive = document.getElementById("score").getElementsByTagName('p')[1]
-	let negative = document.getElementById("score").getElementsByTagName('p')[0]
+	let positive = document.getElementById("positive")
+	let negative = document.getElementById("negative")
 
 	if (answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
+		positive.style.fontSize = "22px"
+		$("#positive").animate({"fontSize": "20px"}, 300)
 		positive.innerHTML = Number(positive.innerHTML) + 1
 	} else {
+		negative.style.fontSize = "22px"
+		$("#negative").animate({"fontSize": "20px"}, 300)
 		negative.innerHTML = Number(negative.innerHTML) + 1
 	}
 
 	correct_answer.style.visibility = "visible"
+
+	if (document.getElementById('auto').checked) {changeQuestion()}
 }
