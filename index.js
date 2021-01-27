@@ -14,8 +14,14 @@ function changeQuestion() {
 	let p_two = document.getElementById("equivalent")
 	let a = document.getElementById("correct_answer")
 
+	//p_one.style.fontSize = "102px"
+	//$("#character").animate({fontSize: "100px"}, 100)
+
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
 	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
+
+	changeBackground(questionShape[1], p_one)
+	changeBackground(questionShape[0], p_two)
 
 	a.style.visibility = "hidden"
 
@@ -58,9 +64,25 @@ function changeQuestion() {
 
 		p_one.innerHTML = part_one
 		p_two.innerHTML = part_two
-		a.getElementsByTagName('p')[0].innerHTML = `The answer was ${answer}`
+		a.getElementsByTagName('p')[0].innerHTML = `the answer was ${answer}`
 
 	})
+}
+
+function changeBackground(char, para) {
+	switch (char) {
+		case "h":
+			para.style.backgroundColor = "red"
+			break;
+		case "k":
+			para.style.backgroundColor = "green"
+			break;
+		case "r":
+			para.style.backgroundColor = "blue"
+			break;
+		default:
+			para.style.backgroundColor = "black"
+	}
 }
 
 function shapeQuestion(allow) {
@@ -94,7 +116,7 @@ function checkAnswer() {
 	let positive = document.getElementById("score").getElementsByTagName('p')[1]
 	let negative = document.getElementById("score").getElementsByTagName('p')[0]
 
-	if (answer_field.value == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
+	if (answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
 		positive.innerHTML = Number(positive.innerHTML) + 1
 	} else {
 		negative.innerHTML = Number(negative.innerHTML) + 1

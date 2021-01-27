@@ -2,7 +2,7 @@ body {
 	display: inline;
 	background-color: #1c1f22;
 	color: white;
-	font-family: "Helvetica";
+	font-family: Arial, sans-serif;
 }
 
 #question {
@@ -13,19 +13,52 @@ body {
 	font-size: 100px;
 	background-color: black;
 	text-align: center;
-	line-height: 200px;
-	width: 200px;
-	height: 200px;
+	line-height: 2em;
+	width: 2em;
+	height: 2em;
 	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 0px;
+}
+
+#equivalent {
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 2em;
+	width: 10em;
+	height: 2em;
+	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+
+#user_answer {
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 2em;
+	width: 15em;
+	height: 2em;
+	border: 1px solid;
+	margin-left: auto;
+	margin-top: 2em;
+	margin-right: auto;
+	margin-bottom: 0px;
 }
 
 #correct_answer {
-}
-
-#score {
-}
-
-#allowed {
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 0em;
+	width: 15em;
+	height: 2em;
+	border: 1px solid;
+	margin-left: auto;
+	margin-top: 2em;
+	margin-right: auto;
+	margin-bottom: 0px;
 }
