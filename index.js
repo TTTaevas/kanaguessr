@@ -110,7 +110,7 @@ function shapeQuestion(allow) {
 	return [element_one, element_two]
 }
 
-function checkAnswer() {
+function checkAnswer() { // Japanese characters are /[\u3040-\u30ff]/ make it so people DON'T try to answer with the wrong alphabet
 	let answer_field = document.getElementById("answer_field")
 	let correct_answer_p = document.getElementById("correct_answer").getElementsByTagName('p')[0]
 	let positive = document.getElementById("positive")
