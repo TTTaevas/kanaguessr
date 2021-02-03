@@ -14,8 +14,8 @@ function changeQuestion() {
 	let p_two = document.getElementById("equivalent")
 	let a = document.getElementById("correct_answer")
 
-	//p_one.style.fontSize = "102px"
-	//$("#character").animate({fontSize: "100px"}, 100)
+	//p_one.style.fontSize = "110px"
+	//$("#character").animate({fontSize: "100px"}, 150)
 
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
 	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
@@ -24,6 +24,7 @@ function changeQuestion() {
 	changeBackground(questionShape[0], p_two)
 
 	a.style.visibility = "hidden"
+	$("#correct_answer").slideUp(10, function(){console.log("test")})
 
 	$.getJSON("characters.json", function(data) {
 		const characters = data.items[Math.floor(Math.random() * data.items.length)]
@@ -117,16 +118,17 @@ function checkAnswer() { // Japanese characters are /[\u3040-\u30ff]/ make it so
 	let negative = document.getElementById("negative")
 
 	if (answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
-		positive.style.fontSize = "22px"
-		$("#positive").animate({"fontSize": "20px"}, 300)
+		positive.style.fontSize = "25px"
+		$("#positive").animate({"fontSize": "20px"}, 250)
 		positive.innerHTML = Number(positive.innerHTML) + 1
 	} else {
-		negative.style.fontSize = "22px"
-		$("#negative").animate({"fontSize": "20px"}, 300)
+		negative.style.fontSize = "25px"
+		$("#negative").animate({"fontSize": "20px"}, 250)
 		negative.innerHTML = Number(negative.innerHTML) + 1
 	}
 
 	correct_answer.style.visibility = "visible"
+	$("#correct_answer").slideDown(100, function(){console.log("test")})
 
 	if (document.getElementById('auto').checked) {changeQuestion()}
 }

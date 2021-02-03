@@ -5,17 +5,8 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-button {
-  background-color: green;
-  border: 1px solid grey;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
 #question {
-	width: 100%;
+	margin-top: 100px;
 }
 
 #character {
@@ -28,7 +19,7 @@ button {
 	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0px;
+	margin-bottom: 0.2em;
 }
 
 #equivalent {
@@ -41,10 +32,10 @@ button {
 	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 0px;
+	margin-bottom: 1em;
 }
 
-#user_answer {
+#correct_answer {
 	font-size: 20px;
 	background-color: black;
 	text-align: center;
@@ -53,23 +44,32 @@ button {
 	height: 2em;
 	border: 1px solid;
 	margin-left: auto;
-	margin-top: 2em;
+	margin-top: 0em;
 	margin-right: auto;
-	margin-bottom: 0px;
+	margin-bottom: 1em;
 }
 
-#correct_answer {
+#correct_answer p {
+	margin: auto;
+}
+
+#user_answer * {
 	font-size: 20px;
+	color: white;
 	background-color: black;
 	text-align: center;
-	line-height: 0em;
+	line-height: 2em;
 	width: 15em;
 	height: 2em;
 	border: 1px solid;
 	margin-left: auto;
-	margin-top: 2em;
+	margin-top: 0em;
 	margin-right: auto;
 	margin-bottom: 0px;
+}
+
+#answer_btn, #next_btn {
+	margin: 2em;
 }
 
 #score {
@@ -83,8 +83,6 @@ button {
 	background-color: black;
 	text-align: center;
 	line-height: 2em;
-	width: 15em;
-	height: 2em;
 	border: 1px solid;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -101,27 +99,25 @@ button {
 }
 
 #allowed {
-	position: absolute;
-	bottom: 50%;
-	font-size: 20px;
-	background-color: white;
-	text-align: center;
-	line-height: 1.5em;
-	border: 1px solid black;
-	overflow: initial;
-}
-
-#misc {
-	position: absolute;
-	bottom: 0%;
 	font-size: 20px;
 	background-color: black;
 	text-align: center;
-	line-height: 1.5em;
-	border: 1px solid white;
-	overflow: initial;
+	line-height: 2em;
+	width: 20em;
+	height: 2em;
+	border: 1px solid;
+	margin-top: 40px;
+	margin-bottom: 0px;
 }
 
-form * {
-	margin: 3px;
+#misc {
+	font-size: 20px;
+	background-color: black;
+	text-align: center;
+	line-height: 2em;
+	width: 20em;
+	height: 2em;
+	border: 1px solid;
+	margin-top: 10px;
+	margin-bottom: 0px;
 }

@@ -3,34 +3,39 @@
 	<head>
 		<title>KanaLearning</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="./index.css">
 		<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+		<script type="text/javascript" src="./bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./index.css">
 		<script type="text/javascript" src="./index.js"></script>
 	</head>
 	<body onload="changeQuestion()">
-		<div id="question">
-			<p id="character"></p>
-			<p id="equivalent"></p>
+		<div class="container" id="main">
+			<div id="question">
+				<p id="character"></p>
+				<p id="equivalent"></p>
+			</div>
+			<div class="row" id="correct_answer">
+				<p>Answer was</p>
+			</div>
+			<div class="row" id="user_answer">
+				<p class="col" style="color: green" id="positive">0</p>
+				<input type="text" class="col form-control form-control-sm" id="answer_field" placeholder="your answer" autofocus="autofocus" onfocus="this.select()">
+				<p class="col" style="color: red" id="negative">0</p>
+			</div>
+			<div class="row" id="submit_answer">
+				<button onclick="checkAnswer()" class="col btn btn-lg btn-outline-success" id="answer_btn">answer</button>
+				<button onclick="changeQuestion()" class="col btn btn-lg btn-outline-info" id="next_btn">next</button>
+			</div>
 		</div>
-		<div id="user_answer">
-			<input type="text" id="answer_field" autofocus="autofocus" onfocus="this.select()">
-			<button onclick="checkAnswer()" id="answer_btn">answer</button>
-			<button onclick="changeQuestion()" id="next_btn">next</button>
+		<div class="container" id="allowed">
+			<div class="form-check-inline"><label for="h" class="form-check-label" style="color: red"><input type="checkbox" class="form-check-input" id="h" checked>hiragana</label></div>
+			<div class="form-check-inline"><label for="k" class="form-check-label" style="color: green"><input type="checkbox" class="form-check-input" id="k" checked=>katakana</label></div>
+			<div class="form-check-inline"><label for="r" class="form-check-label" style="color: blue"><input type="checkbox" class="form-check-input" id="r" checked>romaji</label></div>
 		</div>
-		<div id="correct_answer" style="visibility: hidden;">
-			<p>Answer was</p>
+		<div class="container" id="misc">
+			<div class="form-check-inline"><label for="auto" class="form-check-label" style="color: white"><input type="checkbox" class="form-check-input" id="auto">automatically go to next after answer</label></div>
 		</div>
-		<div id="score">
-			<p style="color: green" id="positive">0</p>
-			<p style="color: red" id="negative">0</p>
 		</div>
-		<form id="allowed">
-			<section><input type="checkbox" id="h" checked="true"> <label for="h" style="color: red">hiragana</label></section>
-			<section><input type="checkbox" id="k" checked="true"> <label for="k" style="color: green">katakana</label></section>
-			<section><input type="checkbox" id="r" checked="true"> <label for="r" style="color: blue">romaji</label></section>
-		</form>
-		<form id="misc">
-			<input type="checkbox" id="auto"> <label for="auto" style="color: white">automatically go to next after answer</label>
-		</form>
 	</body>
 </html>
