@@ -14,9 +14,6 @@ function changeQuestion() {
 	let p_two = document.getElementById("equivalent")
 	let a = document.getElementById("correct_answer")
 
-	//p_one.style.fontSize = "110px"
-	//$("#character").animate({fontSize: "100px"}, 150)
-
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
 	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
 
@@ -24,7 +21,7 @@ function changeQuestion() {
 	changeBackground(questionShape[0], p_two)
 
 	a.style.visibility = "hidden"
-	$("#correct_answer").slideUp(10, function(){console.log("test")})
+	$("#correct_answer").slideUp(10)
 
 	$.getJSON("characters.json", function(data) {
 		const characters = data.items[Math.floor(Math.random() * data.items.length)]
@@ -128,7 +125,7 @@ function checkAnswer() { // Japanese characters are /[\u3040-\u30ff]/ make it so
 	}
 
 	correct_answer.style.visibility = "visible"
-	$("#correct_answer").slideDown(100, function(){console.log("test")})
+	$("#correct_answer").slideDown(100)
 
 	if (document.getElementById('auto').checked) {changeQuestion()}
 }
