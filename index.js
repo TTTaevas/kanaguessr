@@ -108,11 +108,35 @@ function shapeQuestion(allow) {
 	return [element_one, element_two]
 }
 
-function checkAnswer() { // Japanese characters are /[\u3040-\u30ff]/ make it so people DON'T try to answer with the wrong alphabet
+function checkCharacters() {
+	let answer_field = document.getElementById("answer_field")
+	let equivalent = document.getElementById("equivalent")
+	const REGEX_JAPANESE = /[\u3040-\u30ff]/
+	const REGEX_OTHER = /[^\u3040-\u30ff]/
+
+	if (!answer_field.value) {
+		answer_field.style.backgroundColor = "black"
+		return
+	}
+	
+	if (equivalent.innerHTML == "romaji") {
+		answer_field.value.match(REGEX_JAPANESE) ? answer_field.style.backgroundColor = "red" : answer_field.style.backgroundColor = "black"
+	} else {
+		answer_field.value.match(REGEX_OTHER) ? answer_field.style.backgroundColor = "red" : answer_field.style.backgroundColor = "black"
+	}
+}
+
+function checkAnswer() {
 	let answer_field = document.getElementById("answer_field")
 	let correct_answer_p = document.getElementById("correct_answer").getElementsByTagName('p')[0]
 	let positive = document.getElementById("positive")
 	let negative = document.getElementById("negative")
+
+	if (answer_field.style.backgroundColor == "red") {
+		document.getElementById("equivalent").style.fontSize = "23px"
+		$("#equivalent").animate({"fontSize": "20px"}, 500)
+		return
+	}
 
 	if (answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
 		positive.style.fontSize = "25px"

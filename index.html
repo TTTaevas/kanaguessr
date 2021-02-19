@@ -20,7 +20,7 @@
 			</div>
 			<div class="row" id="user_answer">
 				<p class="col" style="color: green" id="positive">0</p>
-				<input type="text" class="col form-control form-control-sm" id="answer_field" placeholder="your answer" autofocus="autofocus" onfocus="this.select()">
+				<input type="text" class="col form-control form-control-sm" id="answer_field" placeholder="your answer" autofocus="autofocus" onfocus="this.select()" oninput="checkCharacters()">
 				<p class="col" style="color: red" id="negative">0</p>
 			</div>
 			<div class="row" id="submit_answer">
