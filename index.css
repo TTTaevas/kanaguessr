@@ -6,7 +6,7 @@ body {
 }
 
 #question {
-	margin-top: 100px;
+	margin-top: 10vh;
 }
 
 #character {
@@ -59,13 +59,17 @@ body {
 	background-color: black;
 	text-align: center;
 	line-height: 2em;
-	width: 15em;
+	min-width: 10vw;
 	height: 2em;
 	border: 1px solid;
-	margin-left: auto;
-	margin-top: 0em;
-	margin-right: auto;
+	margin-left: 0.5%;
+	margin-top: 1em;
+	margin-right: 0.5%;
 	margin-bottom: 0px;
+}
+
+#answer_field {
+	min-width: 30vw;
 }
 
 #answer_btn, #next_btn {
@@ -86,16 +90,6 @@ body {
 	border: 1px solid;
 	margin-top: 0px;
 	margin-bottom: 0px;
-}
-
-#positive {
-	margin-left: auto;
-	margin-right: 10px;
-}
-
-#negative {
-	margin-right: auto;
-	margin-left: 10px;
 }
 
 #allowed {
