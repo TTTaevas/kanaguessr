@@ -1,69 +1,64 @@
 $(function() {
 	document.querySelector("#answer_field").addEventListener("keyup", event => {
-		if (event.key !== "Enter") {return}
+		if (event.key !== "Enter") {return} // The only key we care about is Enter
 		document.getElementById("correct_answer").style.visibility == "visible" ? document.querySelector("#next_btn").click() : document.querySelector("#answer_btn").click()
-		event.preventDefault()
 	})
 })
 
 function changeQuestion() {
-	document.getElementById("answer_field").value = ""
-	document.getElementById("answer_field").focus()
-
-	let p_one = document.getElementById("character")
-	let p_two = document.getElementById("equivalent")
-	let a = document.getElementById("correct_answer")
+	document.getElementById("answer_field").value = "" // Empty field so user doesn't have to do it
+	document.getElementById("answer_field").focus() // Focus on field so user doesn't have to do it
 
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
 	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
+	// NOTE: MAKE SOMETHING HAPPEN WHEN TWO BOXES ARE LEFT UNCHECKED
 
-	changeBackground(questionShape[1], p_one)
-	changeBackground(questionShape[0], p_two)
+	changeBackground(questionShape[1], document.getElementById("character"))
+	changeBackground(questionShape[0], document.getElementById("equivalent"))
 
-	a.style.visibility = "hidden"
+	document.getElementById("correct_answer").style.visibility = "hidden"
 	$("#correct_answer").slideUp(10)
 
 	$.getJSON("characters.json", function(data) {
 		const characters = data.items[Math.floor(Math.random() * data.items.length)]
-		var part_one
-		var part_two
+		var char_in_box
+		var equivalent_of_char
 		var answer
-
-		switch (questionShape[1]) {
-			case "h":
-				part_one = characters.h
-				break
-			case "k":
-				part_one = characters.k
-				break
-			case "r":
-				part_one = characters.r
-				break
-			default:
-				part_one = "???"
-		}
 
 		switch (questionShape[0]) {
 			case "h":
-				part_two = "hiragana"
+				equivalent_of_char = "hiragana"
 				answer = characters.h
 				break
 			case "k":
-				part_two = "katakana"
+				equivalent_of_char = "katakana"
 				answer = characters.k
 				break
 			case "r":
-				part_two = "romaji"
+				equivalent_of_char = "romaji"
 				answer = characters.r
 				break
-			default:
-				part_two = "???"
+			default: // This part of the code can't get executed in theory
+				equivalent_of_char = "???"
 		}
 
-		p_one.innerHTML = part_one
-		p_two.innerHTML = part_two
-		a.getElementsByTagName('p')[0].innerHTML = `the answer was ${answer}`
+		switch (questionShape[1]) {
+			case "h":
+				char_in_box = characters.h
+				break
+			case "k":
+				char_in_box = characters.k
+				break
+			case "r":
+				char_in_box = characters.r
+				break
+			default: // This part of the code can't get executed in theory
+				char_in_box = "???"
+		}
 
+		document.getElementById("equivalent").innerHTML = equivalent_of_char
+		document.getElementById("character").innerHTML = char_in_box
+		document.getElementById("correct_answer").getElementsByTagName('p')[0].innerHTML = `the answer was ${answer}`
 	})
 }
 
