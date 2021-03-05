@@ -10,8 +10,11 @@ function changeQuestion() {
 	document.getElementById("answer_field").focus() // Focus on field so user doesn't have to do it
 
 	let questionShape = shapeQuestion([document.getElementById('h').checked, document.getElementById('k').checked, document.getElementById('r').checked])
-	if (!questionShape) {return false} // No question can be found if two boxes are left unchecked
-	// NOTE: MAKE SOMETHING HAPPEN WHEN TWO BOXES ARE LEFT UNCHECKED
+	if (!questionShape) { // No question can be found if two boxes are left unchecked
+		document.getElementById("allowed").style.fontSize = "30px"
+		$("#allowed").animate({"fontSize": "20px"}, 800)
+		return
+	}
 
 	changeBackground(questionShape[1], document.getElementById("character"))
 	changeBackground(questionShape[0], document.getElementById("equivalent"))
