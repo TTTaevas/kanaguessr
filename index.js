@@ -3,6 +3,11 @@ $(function() {
 		if (event.key !== "Enter") {return} // The only key we care about is Enter
 		document.getElementById("correct_answer").style.visibility == "visible" ? document.querySelector("#next_btn").click() : document.querySelector("#answer_btn").click()
 	})
+
+	changeQuestion()
+	$("#answer_field").on("input", ":text", checkCharacters)
+	$("#answer_btn").click(checkAnswer)
+	$("#next_btn").click(changeQuestion)
 })
 
 function changeQuestion() {
@@ -20,7 +25,7 @@ function changeQuestion() {
 	changeBackground(questionShape[0], document.getElementById("equivalent"))
 
 	document.getElementById("correct_answer").style.visibility = "hidden"
-	$("#correct_answer").slideUp(10)
+	$("#correct_answer").slideUp(100)
 
 	$.getJSON("characters.json", function(data) {
 		const characters = data.items[Math.floor(Math.random() * data.items.length)]
@@ -116,19 +121,15 @@ function checkCharacters() {
 		answer_field.style.backgroundColor = "black"
 		return
 	}
-	
-	if (equivalent.innerHTML == "romaji") {
-		answer_field.value.match(REGEX_JAPANESE) ? answer_field.style.backgroundColor = "red" : answer_field.style.backgroundColor = "black"
-	} else {
-		answer_field.value.match(REGEX_OTHER) ? answer_field.style.backgroundColor = "red" : answer_field.style.backgroundColor = "black"
-	}
+
+	let regex = equivalent.innerHTML === "romaji" ? REGEX_JAPANESE : REGEX_OTHER
+	answer_field.value.match(regex) ? answer_field.style.backgroundColor = "red" : answer_field.style.backgroundColor = "black"
 }
 
 function checkAnswer() {
 	let answer_field = document.getElementById("answer_field")
-	let correct_answer_p = document.getElementById("correct_answer").getElementsByTagName('p')[0]
-	let positive = document.getElementById("positive")
-	let negative = document.getElementById("negative")
+	let correct_answer = document.getElementById("correct_answer")
+	let correct_answer_p = correct_answer.getElementsByTagName('p')[0]
 
 	if (answer_field.style.backgroundColor == "red") {
 		document.getElementById("equivalent").style.fontSize = "23px"
@@ -136,18 +137,13 @@ function checkAnswer() {
 		return
 	}
 
-	if (answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1)) {
-		positive.style.fontSize = "25px"
-		$("#positive").animate({"fontSize": "20px"}, 250)
-		positive.innerHTML = Number(positive.innerHTML) + 1
-	} else {
-		negative.style.fontSize = "25px"
-		$("#negative").animate({"fontSize": "20px"}, 250)
-		negative.innerHTML = Number(negative.innerHTML) + 1
-	}
+	let element = answer_field.value.toLowerCase() == correct_answer_p.innerHTML.slice(correct_answer_p.innerHTML.lastIndexOf(" ") + 1) ?
+	$("#positive") : $("#negative")
+	element.css("fontSize", "24px")
+	element.animate({fontSize: "20px"}, 250)
+	element.html(Number(element.html()) + 1)
 
 	correct_answer.style.visibility = "visible"
 	$("#correct_answer").slideDown(100)
-
 	if (document.getElementById('auto').checked) {changeQuestion()}
 }
