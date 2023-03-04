@@ -3,77 +3,91 @@ body {
 	background-color: #1c1f22;
 	color: white;
 	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+p {
+	margin-bottom: 0;
 }
 
 #question {
-	margin-top: 10vh;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#question * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#answer {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#answer > * {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button {
+	margin: 5px;
+	min-width: 100px;
 }
 
 #character {
 	font-size: 100px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	width: 2em;
 	height: 2em;
 	border: 1px solid;
-	margin-left: auto;
-	margin-right: auto;
 	margin-bottom: 0.2em;
 }
 
 #equivalent {
 	font-size: 20px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	width: 10em;
 	height: 2em;
 	border: 1px solid;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 1em;
 }
 
 #correct_answer {
 	font-size: 20px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	width: 15em;
 	height: 2em;
 	border: 1px solid;
-	margin-left: auto;
 	margin-top: 0em;
-	margin-right: auto;
 	margin-bottom: 1em;
 }
 
-#correct_answer p {
-	margin: auto;
+#user_answer {
+	display: inline-flex;
 }
 
 #user_answer * {
-	font-size: 20px;
+	font-size: 4vh;
 	color: white;
 	background-color: black;
-	text-align: center;
-	line-height: 2em;
-	min-width: 10vw;
-	height: 2em;
+	line-height: 10vh;
 	border: 1px solid;
-	margin-left: 0.5%;
 	margin-top: 1em;
-	margin-right: 0.5%;
 	margin-bottom: 0px;
+	width: 15vh;
+	height: 10vh;
 }
 
 #answer_field {
-	min-width: 30vw;
+	width: 25vw;
+	text-align: center;
 }
 
-#answer_btn, #next_btn {
-	margin: 2em;
+#submit_answer {
+	margin-top: 15px;
 }
 
 #score {
@@ -85,7 +99,6 @@ body {
 #score p {
 	font-size: 20px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	border: 1px solid;
 	margin-top: 0px;
@@ -95,7 +108,6 @@ body {
 #allowed {
 	font-size: 20px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	width: 20em;
 	height: 2em;
@@ -107,7 +119,6 @@ body {
 #misc {
 	font-size: 20px;
 	background-color: black;
-	text-align: center;
 	line-height: 2em;
 	width: 20em;
 	height: 2em;

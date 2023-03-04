@@ -126,8 +126,8 @@ function checkAnswer() {
 
 	let html = $("#answer_paragraph").html()
 	let element = $("#answer_field").val().toLowerCase() === html.slice(html.lastIndexOf(" ") + 1) ? $("#positive") : $("#negative")
-	element.css("fontSize", "24px")
-	element.animate({fontSize: "20px"}, 250)
+	element.css("opacity", "0")
+	element.animate({"opacity": "1"}, 200)
 	element.html(Number(element.html()) + 1)
 
 	$("#correct_answer").css("visibility", "visible")
