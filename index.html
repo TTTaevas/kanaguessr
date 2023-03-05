@@ -32,13 +32,43 @@
 					</div>
 				</div>
 			</div>
-			<div class="container" id="allowed">
-				<div class="form-check-inline"><label for="h" class="form-check-label" style="color: red"><input type="checkbox" class="form-check-input" id="h" checked>hiragana</label></div>
-				<div class="form-check-inline"><label for="k" class="form-check-label" style="color: green"><input type="checkbox" class="form-check-input" id="k" checked=>katakana</label></div>
-				<div class="form-check-inline"><label for="r" class="form-check-label" style="color: blue"><input type="checkbox" class="form-check-input" id="r" checked>romaji</label></div>
+			<div class="row" id="settings">
+				<div class="col me-4 ms-4" id="allowed_questions">
+					<p>Guess:</p>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="hq" checked>
+						<label for="hq" class="form-check-label" style="color: red">hiragana</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="kq" checked>
+						<label for="kq" class="form-check-label" style="color: green">katakana</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="rq" checked>
+						<label for="rq" class="form-check-label" style="color: blue">romaji</label>
+					</div>
+				</div>
+				<div class="col me-4 ms-4" id="allowed_equivalents">
+					<p>As:</p>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="he" checked>
+						<label for="he" class="form-check-label" style="color: red">hiragana</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="ke" checked>
+						<label for="ke" class="form-check-label" style="color: green">katakana</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="re" checked>
+						<label for="re" class="form-check-label" style="color: blue">romaji</label>
+					</div>
+				</div>
 			</div>
-			<div class="container" id="misc">
-				<div class="form-check-inline"><label for="auto" class="form-check-label" style="color: white"><input type="checkbox" class="form-check-input" id="auto">automatically go to next after answer</label></div>
+			<div class="row" id="misc">
+				<div>
+					<input type="checkbox" class="form-check-input" id="auto">
+					<label for="auto" class="form-check-label" style="color: white">automatically go to next after answer</label>
+				</div>
 			</div>
 		</div>
 	</body>

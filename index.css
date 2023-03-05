@@ -31,7 +31,8 @@ p {
 }
 
 button {
-	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 	min-width: 100px;
 }
 
@@ -58,11 +59,12 @@ button {
 	font-size: 20px;
 	background-color: black;
 	line-height: 2em;
-	width: 15em;
+	width: fit-content;
 	height: 2em;
 	border: 1px solid;
-	margin-top: 0em;
-	margin-bottom: 1em;
+	margin-top: 15px;
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
 #user_answer {
@@ -70,23 +72,37 @@ button {
 }
 
 #user_answer * {
-	font-size: 4vh;
+	font-size: 30px;
 	color: white;
 	background-color: black;
-	line-height: 10vh;
+	line-height: 75px;
 	border: 1px solid;
 	margin-top: 1em;
 	margin-bottom: 0px;
-	width: 15vh;
-	height: 10vh;
-}
-
-#answer_field {
-	width: 25vw;
+	width: 50px;
+	height: 80px;
 	text-align: center;
 }
 
-#submit_answer {
+#answer_field {
+	width: 250px;
+}
+
+@media screen and (max-width: 450px) {
+	#user_answer * {
+		width: 12vw;
+	}
+	#answer_field {
+		width: 50vw;
+	}
+	#correct_answer {
+		font-size: 5vw;
+		height: auto;
+		padding: 2vw 10vw;
+	}
+}
+
+#submit_answer > * {
 	margin-top: 15px;
 }
 
@@ -105,6 +121,21 @@ button {
 	margin-bottom: 0px;
 }
 
+#settings {
+	margin-top: 10px;
+}
+
+#settings > * {
+	margin-top: 10px;
+	border: 1px solid white;
+	border-radius: 25px;
+	background-color: #171717;
+}
+
+label {
+	font-weight: bold;
+}
+
 #allowed {
 	font-size: 20px;
 	background-color: black;
@@ -117,12 +148,12 @@ button {
 }
 
 #misc {
-	font-size: 20px;
 	background-color: black;
-	line-height: 2em;
-	width: 20em;
-	height: 2em;
+	width: fit-content;
+	padding: 5px;
 	border: 1px solid;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-bottom: 0px;
+	margin-left: auto;
+	margin-right: auto;
 }
