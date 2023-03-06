@@ -15,15 +15,18 @@ function changeQuestion() {
 	$("#answer_field").val("") // Empty field so user doesn't have to do it
 	$("#answer_field").focus() // Focus on field so user doesn't have to do it
 
-	let questionShape = shapeQuestion([$("#h:checked").length, $("#k:checked").length, $("#r:checked").length])
+	let questionShape = shapeQuestion(
+		[$("#hq:checked").length, $("#kq:checked").length, $("#rq:checked").length],
+		[$("#he:checked").length, $("#ke:checked").length, $("#re:checked").length]
+	)
 	if (!questionShape) { // No question can be found if two boxes are left unchecked
 		$("#allowed").css("fontSize", "30px")
 		$("#allowed").animate({"fontSize": "20px"}, 800)
 		return
 	}
 
-	changeBackground(questionShape[1], $("#character"))
-	changeBackground(questionShape[0], $("#equivalent"))
+	changeBackground(questionShape[0], $("#character"))
+	changeBackground(questionShape[1], $("#equivalent"))
 
 	$("#correct_answer").css("visibility", "hidden")
 	$("#correct_answer").slideUp(100)
@@ -35,6 +38,20 @@ function changeQuestion() {
 		var answer
 
 		switch (questionShape[0]) {
+			case "h":
+				char_in_box = characters.h
+				break
+			case "k":
+				char_in_box = characters.k
+				break
+			case "r":
+				char_in_box = characters.r
+				break
+			default: // This part of the code can't get executed in theory
+				char_in_box = "???"
+		}
+
+		switch (questionShape[1]) {
 			case "h":
 				equivalent_of_char = "hiragana"
 				answer = characters.h
@@ -51,22 +68,8 @@ function changeQuestion() {
 				equivalent_of_char = "???"
 		}
 
-		switch (questionShape[1]) {
-			case "h":
-				char_in_box = characters.h
-				break
-			case "k":
-				char_in_box = characters.k
-				break
-			case "r":
-				char_in_box = characters.r
-				break
-			default: // This part of the code can't get executed in theory
-				char_in_box = "???"
-		}
-
-		$("#equivalent").html(equivalent_of_char)
 		$("#character").html(char_in_box)
+		$("#equivalent").html(equivalent_of_char)
 		$("#answer_paragraph").html(`the answer was ${answer}`)
 	})
 }
@@ -80,26 +83,28 @@ function changeBackground(char, para) {
 	para.css("backgroundColor", colour)
 }
 
-function shapeQuestion(allow) {
-	if (allow.filter(Boolean).length < 2) {return false} // No question can be found if two boxes are left unchecked
-
+function shapeQuestion(question, equivalent) {
 	let possibilities = ["h", "k", "r"]
 	var element_one
 	var element_two
 
-	while (element_one == undefined) {
-		let x = Math.floor(Math.random() * possibilities.length)
-		if (allow[x]) {
-			let temp = possibilities[x]
-			allow.splice(possibilities.indexOf(temp), 1)
-			possibilities.splice(possibilities.indexOf(temp), 1)
-			element_one = temp
-		}
+	question = question.map((a, i) => {if (a) return possibilities[i]}).filter((a) => a)
+	equivalent = equivalent.map((a, i) => {if (a) return possibilities[i]}).filter((a) => a)
+	if (question.length < 1 || equivalent.length < 1) {return false}
+	if (question.length === 1 && equivalent.length === 1) {
+		if (JSON.stringify(question) === JSON.stringify(equivalent)) {return false}
 	}
 
-	while (element_two == undefined) {
-		let x = Math.floor(Math.random() * possibilities.length)
-		if (allow[x] && possibilities[x] != element_one) {element_two = possibilities[x]}
+	while (element_one === undefined || element_two === undefined) {
+		let x = Math.floor(Math.random() * question.length)
+		if (question[x]) {
+			element_one = question[x]
+		}
+
+		let y = Math.floor(Math.random() * equivalent.length)
+		if (equivalent[y] && equivalent[y] != element_one) {
+			element_two = equivalent[y]
+		}
 	}
 
 	return [element_one, element_two]
