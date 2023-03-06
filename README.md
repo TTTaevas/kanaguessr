@@ -5,3 +5,5 @@
 you may use it to train yourself with [typing in japanese](https://www.coscom.co.jp/learnjapanese801/msime_win10_en1.html), by constantly switching through three different syllabaries
 
 or you may simply use it to test your knowledge of hiraganas and katakanas by typing their equivalent in romaji
+
+![kanaguessr](https://user-images.githubusercontent.com/67872932/223125696-6c15bc2f-416b-4eb0-9322-32053e24ef9d.gif)
