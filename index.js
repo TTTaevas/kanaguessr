@@ -5,7 +5,7 @@ $(function() {
 	})
 
 	changeQuestion()
-	$("#answer_field").on("input", ":text", checkCharacters)
+	$("#answer_field").on("input propertychange", () => {checkCharacters()})
 	$("#answer_field").on("focus", () => {$("#answer_field").select()})
 	$("#answer_btn").click(checkAnswer)
 	$("#next_btn").click(changeQuestion)
@@ -19,9 +19,10 @@ function changeQuestion() {
 		[$("#hq:checked").length, $("#kq:checked").length, $("#rq:checked").length],
 		[$("#he:checked").length, $("#ke:checked").length, $("#re:checked").length]
 	)
-	if (!questionShape) { // No question can be found if two boxes are left unchecked
-		$("#allowed").css("fontSize", "30px")
-		$("#allowed").animate({"fontSize": "20px"}, 800)
+	
+	if (!questionShape) { // No question can be found if settings are messed up
+		$("#settings").css("opacity", "0")
+		$("#settings").animate({"opacity": "1"}, 200)
 		return
 	}
 
@@ -47,24 +48,24 @@ function changeQuestion() {
 			case "r":
 				char_in_box = characters.r
 				break
-			default: // This part of the code can't get executed in theory
+			default:
 				char_in_box = "???"
 		}
 
 		switch (questionShape[1]) {
 			case "h":
-				equivalent_of_char = "hiragana"
+				equivalent_of_char = "ひらがな"
 				answer = characters.h
 				break
 			case "k":
-				equivalent_of_char = "katakana"
+				equivalent_of_char = "カタカナ"
 				answer = characters.k
 				break
 			case "r":
-				equivalent_of_char = "romaji"
+				equivalent_of_char = "rōmaji"
 				answer = characters.r
 				break
-			default: // This part of the code can't get executed in theory
+			default:
 				equivalent_of_char = "???"
 		}
 
@@ -113,7 +114,7 @@ function shapeQuestion(question, equivalent) {
 function checkCharacters() {
 	const REGEX_JAPANESE = /[\u3040-\u30ff]/
 	const REGEX_OTHER = /[^\u3040-\u30ff]/
-	let regex = $("#equivalent").html() === "romaji" ? REGEX_JAPANESE : REGEX_OTHER
+	let regex = $("#equivalent").html() === "rōmaji" ? REGEX_JAPANESE : REGEX_OTHER
 
 	if (!$("#answer_field").val() || !$("#answer_field").val().match(regex)) {
 		$("#answer_field").css("backgroundColor", "black")
@@ -123,7 +124,7 @@ function checkCharacters() {
 }
 
 function checkAnswer() {
-	if ($("#answer_field.style").css("backgroundColor") === "red") {
+	if ($("#answer_field").css("backgroundColor") === "rgb(255, 0, 0)") {
 		$("equivalent").css("fontSize", "23px")
 		$("#equivalent").animate({"fontSize": "20px"}, 500)
 		return

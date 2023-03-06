@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>KanaLearning</title>
+		<title>kanaguessr</title>
+		<link rel="icon" type="image/x-icon" href="/favicon.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -12,10 +13,10 @@
 	</head>
 	<body>
 		<div class="container" id="main">
-			<div class="row" style="margin-top: 25px;">
+			<div class="row" style="margin-top: 25px;" id="game">
 				<div class="col" id="question">
-					<p id="character"></p>
-					<p id="equivalent"></p>
+					<p title="the character you have to write" id="character"></p>
+					<p title="the syllabary in which you have to write" id="equivalent"></p>
 				</div>
 				<div class="col" id="answer">
 					<div id="user_answer">
@@ -28,39 +29,39 @@
 						<button class="col btn btn-lg btn-outline-info" id="next_btn">next</button>
 					</div>
 					<div class="row" id="correct_answer" style="display: none;">
-						<p id="answer_paragraph">Answer was</p>
+						<p id="answer_paragraph">the answer was</p>
 					</div>
 				</div>
 			</div>
 			<div class="row" id="settings">
 				<div class="col me-4 ms-4" id="allowed_questions">
 					<p>character:</p>
-					<div class="form-check form-check-inline">
+					<div class="h form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="hq" checked>
-						<label for="hq" class="form-check-label" style="color: red">hiragana</label>
+						<label for="hq" class="form-check-label">ひらがな</label>
 					</div>
-					<div class="form-check form-check-inline">
+					<div class="k form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="kq" checked>
-						<label for="kq" class="form-check-label" style="color: green">katakana</label>
+						<label for="kq" class="form-check-label">カタカナ</label>
 					</div>
-					<div class="form-check form-check-inline">
+					<div class="r form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="rq" checked>
-						<label for="rq" class="form-check-label" style="color: blue">romaji</label>
+						<label for="rq" class="form-check-label">rōmaji</label>
 					</div>
 				</div>
 				<div class="col me-4 ms-4" id="allowed_equivalents">
 					<p>type as:</p>
-					<div class="form-check form-check-inline">
+					<div class="h form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="he" checked>
-						<label for="he" class="form-check-label" style="color: red">hiragana</label>
+						<label for="he" class="form-check-label">ひらがな</label>
 					</div>
-					<div class="form-check form-check-inline">
+					<div class="k form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="ke" checked>
-						<label for="ke" class="form-check-label" style="color: green">katakana</label>
+						<label for="ke" class="form-check-label">カタカナ</label>
 					</div>
-					<div class="form-check form-check-inline">
+					<div class="r form-check form-check-inline">
 						<input type="checkbox" class="form-check-input" id="re" checked>
-						<label for="re" class="form-check-label" style="color: blue">romaji</label>
+						<label for="re" class="form-check-label">rōmaji</label>
 					</div>
 				</div>
 			</div>

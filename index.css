@@ -16,8 +16,29 @@ p {
 }
 
 #question * {
+	background-color: black;
+	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
+	height: 2em;
+	line-height: 2em;
+}
+
+#character {
+	margin-bottom: 0.2em;
+	font-size: 100px;
+	width: 2em;
+}
+
+@media screen and (max-height: 450px) {
+	#character {
+		font-size: 20vh;
+	}
+}
+
+#equivalent {
+	font-size: 20px;
+	width: 10em;
 }
 
 #answer {
@@ -30,53 +51,16 @@ p {
 	margin-right: auto;
 }
 
-button {
-	margin-left: 5px;
-	margin-right: 5px;
-	min-width: 100px;
-}
-
-#character {
-	font-size: 100px;
-	background-color: black;
-	line-height: 2em;
-	width: 2em;
-	height: 2em;
-	border: 1px solid;
-	margin-bottom: 0.2em;
-}
-
-#equivalent {
-	font-size: 20px;
-	background-color: black;
-	line-height: 2em;
-	width: 10em;
-	height: 2em;
-	border: 1px solid;
-}
-
-#correct_answer {
-	font-size: 20px;
-	background-color: black;
-	line-height: 2em;
-	width: fit-content;
-	height: 2em;
-	border: 1px solid;
-	margin-top: 15px;
-	padding-left: 100px;
-	padding-right: 100px;
-}
-
 #user_answer {
 	display: inline-flex;
 }
 
 #user_answer * {
-	font-size: 30px;
-	color: white;
 	background-color: black;
-	line-height: 75px;
+	color: white;
 	border: 1px solid;
+	font-size: 30px;
+	line-height: 75px;
 	margin-top: 1em;
 	margin-bottom: 0px;
 	width: 50px;
@@ -86,6 +70,33 @@ button {
 
 #answer_field {
 	width: 250px;
+}
+
+#submit_answer button {
+	border-width: 2px;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	min-width: 100px;
+}
+
+#correct_answer {
+	background-color: black;
+	border: 1px solid;
+	font-size: 20px;
+	line-height: 2em;
+	width: 300px;
+	height: 2em;
+	margin-top: 15px;
+}
+
+@media screen and (max-height: 450px) {
+	#user_answer * {
+		height: 6vw;
+		line-height: 5.5vw;
+		min-height: auto;
+	}
 }
 
 @media screen and (max-width: 450px) {
@@ -98,27 +109,8 @@ button {
 	#correct_answer {
 		font-size: 5vw;
 		height: auto;
-		padding: 2vw 10vw;
+		width: 70vw;
 	}
-}
-
-#submit_answer > * {
-	margin-top: 15px;
-}
-
-#score {
-	display: flex;
-	margin-top: 20px;
-	margin-bottom: 0px;
-}
-
-#score p {
-	font-size: 20px;
-	background-color: black;
-	line-height: 2em;
-	border: 1px solid;
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 
 #settings {
@@ -126,32 +118,31 @@ button {
 }
 
 #settings > * {
-	margin-top: 10px;
+	background-color: #171717;
 	border: 1px solid white;
 	border-radius: 25px;
-	background-color: #171717;
+	margin-top: 10px;
 }
 
-label {
+#settings label, #misc label {
 	font-weight: bold;
 }
 
-#allowed {
-	font-size: 20px;
-	background-color: black;
-	line-height: 2em;
-	width: 20em;
-	height: 2em;
-	border: 1px solid;
-	margin-top: 40px;
-	margin-bottom: 0px;
+.h label {
+	background-color: red;
+}
+.k label {
+	background-color: green;
+}
+.r label {
+	background-color: blue;
 }
 
 #misc {
 	background-color: black;
+	border: 1px solid;
 	width: fit-content;
 	padding: 5px;
-	border: 1px solid;
 	margin-top: 15px;
 	margin-bottom: 0px;
 	margin-left: auto;
