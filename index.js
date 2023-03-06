@@ -77,9 +77,9 @@ function changeQuestion() {
 
 function changeBackground(char, para) {
 	let colour = "black"
-	if (char === "h") {colour = "red"}
-	else if (char === "k") {colour = "green"}
-	else if (char === "r") {colour = "blue"}
+	if (char === "h") {colour = "#b57642"}
+	else if (char === "k") {colour = "steelblue"}
+	else if (char === "r") {colour = "blueviolet"}
 
 	para.css("backgroundColor", colour)
 }

@@ -129,13 +129,13 @@ p {
 }
 
 .h label {
-	background-color: red;
+	background-color: #b57642;
 }
 .k label {
-	background-color: green;
+	background-color: steelblue;
 }
 .r label {
-	background-color: blue;
+	background-color: blueviolet;
 }
 
 #misc {
