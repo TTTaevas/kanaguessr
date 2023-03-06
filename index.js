@@ -124,19 +124,25 @@ function checkCharacters() {
 }
 
 function checkAnswer() {
+	if (!$("#answer_field").val()) {return}
 	if ($("#answer_field").css("backgroundColor") === "rgb(255, 0, 0)") {
-		$("equivalent").css("fontSize", "23px")
-		$("#equivalent").animate({"fontSize": "20px"}, 500)
+		$("#equivalent").css("fontSize", "25px")
+		$("#equivalent").animate({"fontSize": "20px"}, 1000)
 		return
 	}
 
 	let html = $("#answer_paragraph").html()
 	let element = $("#answer_field").val().toLowerCase() === html.slice(html.lastIndexOf(" ") + 1) ? $("#positive") : $("#negative")
 	element.css("opacity", "0")
-	element.animate({"opacity": "1"}, 200)
+	element.css("backgroundColor", element.css("color"))
+	setTimeout(() => {element.css("backgroundColor", "black")}, 125)
+	element.animate({"opacity": "1"}, 250)
 	element.html(Number(element.html()) + 1)
 
-	$("#correct_answer").css("visibility", "visible")
-	$("#correct_answer").slideDown(100)
-	if ($("#auto:checked").length){changeQuestion()}
+	if ($("#auto:checked").length) {
+		changeQuestion()
+	} else {
+		$("#correct_answer").css("visibility", "visible")
+		$("#correct_answer").slideDown(100)
+	}
 }
