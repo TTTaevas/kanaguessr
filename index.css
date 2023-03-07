@@ -30,12 +30,6 @@ p {
 	width: 2em;
 }
 
-@media screen and (max-height: 450px) {
-	#character {
-		font-size: 20vh;
-	}
-}
-
 #equivalent {
 	font-size: 20px;
 	width: 10em;
@@ -91,28 +85,6 @@ p {
 	margin-top: 15px;
 }
 
-@media screen and (max-height: 450px) {
-	#user_answer * {
-		height: 6vw;
-		line-height: 5.5vw;
-		min-height: auto;
-	}
-}
-
-@media screen and (max-width: 450px) {
-	#user_answer * {
-		width: 12vw;
-	}
-	#answer_field {
-		width: 50vw;
-	}
-	#correct_answer {
-		font-size: 5vw;
-		height: auto;
-		width: 70vw;
-	}
-}
-
 #settings {
 	margin-top: 10px;
 }
@@ -147,4 +119,34 @@ p {
 	margin-bottom: 0px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+
+@media screen and (max-width: 450px) {
+	#user_answer * {
+		width: 12vw;
+	}
+	#answer_field {
+		width: 50vw;
+	}
+	#correct_answer {
+		font-size: 5vw;
+		height: auto;
+		width: 70vw;
+	}
+}
+
+@media screen and (max-height: 650px) {
+	#user_answer * {
+		height: 8vh;
+		line-height: 7.5vh;
+		min-height: auto;
+		font-size: 5vh;
+	}
+	#character {
+		font-size: 12vh;
+	}
+	#equivalent, #correct_answer {
+		font-size: 4vh;
+	}
 }

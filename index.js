@@ -14,6 +14,10 @@ $(function() {
 function changeQuestion() {
 	$("#answer_field").val("") // Empty field so user doesn't have to do it
 	$("#answer_field").focus() // Focus on field so user doesn't have to do it
+	$("#answer_btn").attr("disabled", false)
+	$("#answer_btn").css("display", "block")
+	$("#next_btn").css("display", "none")
+	$("#next_btn").html("skip")
 
 	let questionShape = shapeQuestion(
 		[$("#hq:checked").length, $("#kq:checked").length, $("#rq:checked").length],
@@ -124,6 +128,7 @@ function checkCharacters() {
 }
 
 function checkAnswer() {
+	$("#answer_field").focus() // Keey keyboard on for mobile users
 	if (!$("#answer_field").val()) {return}
 	if ($("#answer_field").css("backgroundColor") === "rgb(255, 0, 0)") {
 		$("#equivalent").css("fontSize", "25px")
@@ -144,5 +149,9 @@ function checkAnswer() {
 	} else {
 		$("#correct_answer").css("visibility", "visible")
 		$("#correct_answer").slideDown(100)
+		$("#answer_btn").attr("disabled", true)
+		$("#answer_btn").css("display", "none")
+		$("#next_btn").html("next")
+		$("#next_btn").css("display", "block")
 	}
 }
